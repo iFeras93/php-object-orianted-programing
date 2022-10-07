@@ -80,9 +80,10 @@ class Car{
     /**
      * @param mixed $size
      */
-    public function setSize($size): void
+    public function setSize($size)
     {
         $this->size = $size;
+        return $this;
     }
 
 
@@ -98,6 +99,5 @@ class Mercedes extends Car {
 
 $carOne= new Mercedes('White','2 Passenger');
 
-$carOne->setCarColor("Black");
-$carOne->setSize("4 Passenger");
+$carOne->setCarColor("Black")->setSize("4 Passenger");
 echo $carOne->getCarColor().$carOne->getSize();
