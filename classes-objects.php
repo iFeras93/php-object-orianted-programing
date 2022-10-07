@@ -39,7 +39,65 @@ $product2= new Product();
 $product1->name= "iPhone 14";
 $product2->name= "iPhone 14 Pro";
 
-print_r([
-    $product1->name,
-    $product2->name,
-]);
+//print_r([
+//    $product1->name,
+//    $product2->name,
+//]);
+//
+
+
+///////////////////////////////// Constrcutor  & Inheritance /////////////////////////////////////////////
+
+class Car{
+    public $color;
+    public $size;
+
+
+    public function __construct()
+    {
+        echo 'Parent Constructor'.PHP_EOL;
+    }
+
+    public function getCarColor()
+    {
+        return $this->color.PHP_EOL;
+    }
+
+    public function setCarColor($color)
+    {
+        $this->color= $color;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param mixed $size
+     */
+    public function setSize($size): void
+    {
+        $this->size = $size;
+    }
+
+
+}
+
+class Mercedes extends Car {
+    public function __construct($color, $size)
+    {
+        $this->color=$color;
+        $this->size= $size;
+    }
+}
+
+$carOne= new Mercedes('White','2 Passenger');
+
+$carOne->setCarColor("Black");
+$carOne->setSize("4 Passenger");
+echo $carOne->getCarColor().$carOne->getSize();
